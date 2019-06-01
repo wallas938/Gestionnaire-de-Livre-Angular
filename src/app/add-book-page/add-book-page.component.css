@@ -1,0 +1,17 @@
+#add_book-container {
+  width: 100%;
+}
+
+#h2_description {
+  text-align: center;
+}
+
+#book_resume {
+  text-align: left;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#btn_add_book_validator {
+  margin-top: 20px;
+}

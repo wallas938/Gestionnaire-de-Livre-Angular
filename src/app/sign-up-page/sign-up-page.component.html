@@ -1,0 +1,30 @@
+<div>
+    <form id="inscription_form" (ngSubmit)="onSignUpSubmit()" [formGroup]="signUpForm">
+        <div class="form-group">
+            <label for="inscription_name">Nom : </label>
+            <input type="text" class="form-control" id="inscription_name" name="inscription_name" aria-describedby="emailHelp" placeholder="Entrez votre nom" formControlName="newUserLastName">
+          </div>
+          <div class="form-group">
+              <label for="inscription_prenom">Prénom : </label>
+              <input type="text" class="form-control" id="inscription_prenom" name="inscription_prenom" aria-describedby="emailHelp" placeholder="Entrez votre prénom" formControlName="newUserFirstName">
+            </div>
+            <div class="form-group">
+                <label for="inscription_adress">Adresse : </label>
+                <input type="text" class="form-control" id="inscription_adress" name="inscription_adress" aria-describedby="emailHelp" placeholder="Entrez une adresse" formControlName="newUserAdress">
+              </div>
+        <div class="form-group">
+          <label for="inscription_email">Email : </label>
+          <input type="email" class="form-control" id="inscription_email" name="inscription_email" aria-describedby="emailHelp" placeholder="Entrez votre email" formControlName="newUserEmail">
+        </div>
+        <div class="form-group">
+          <label for="inscription_password">Mot de passe : </label>
+          <input type="password" id="inscription_password" class="form-control"  name="inscription_password" placeholder="Entrez un mot de passe" formControlName="newUserPassword">
+        </div>
+        <div class="form-group">
+            <label for="inscription_password-comfirmation">Confirmez votre mot de passe : </label>
+            <input type="password" class="form-control" name="inscription_password-comfirmation" id="inscription_password-comfirmation" placeholder="Confirmation de mot de passe" formControlName="newUserPasswordConfirmation">
+            <small id="emailHelp" class="form-text text-muted">{{ errorMessage }}</small>
+          </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">Submit</button>
+      </form>
+</div>

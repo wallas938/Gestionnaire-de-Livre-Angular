@@ -1,0 +1,33 @@
+<div id="add_book-container">
+    <form id="add_book_form" (ngSubmit)="onBookSubmit()" [formGroup]='addBookForm'>
+      <div class="form-row">
+        <div class="col">
+          <label for="book_title">Titre : </label>
+          <input type="text" name="book_title" class="form-control" id="book_title" placeholder="Titre du livre" formControlName='bookTitle' required>
+        </div>
+        <div class="col">
+          <label for="book_author">Auteur : </label>
+          <input type="text" name="book_author" class="form-control" id="book_author" placeholder="Auteur du livre" formControlName='bookAuthor' required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="book_edition">Édition : </label>
+          <input type="text" name="book_edition" class="form-control" id="book_edition" placeholder="Édition du livre" formControlName='bookEdition' required>
+        </div>
+        <div class="col">
+          <label for="book_release_date">Date de parution : </label>
+          <input type="date" name="book_release_date" class="form-control" id="book_release_date"
+            placeholder="Date de parution" min="1980-01-01" formControlName='bookReleaseDate'>
+        </div>
+      </div>
+
+      <div id="book_resume-block">
+        <h2 id="h2_description">Description du livre : </h2>
+        <textarea id="book_resume" class="form-control" name="book_resume" aria-label="TEST" formControlName='bookResume'>
+        </textarea>
+      </div>
+      <button id="btn_add_book_validator" type="submit" class="btn btn-primary btn-lg btn-block">Ajouter a votre
+        collection</button>
+    </form>
+  </div>

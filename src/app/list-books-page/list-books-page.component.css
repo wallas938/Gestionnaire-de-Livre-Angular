@@ -1,0 +1,37 @@
+#h1_book_list {
+  text-align: center;
+}
+
+#books_list-container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.book_card {
+  background-color: cadetblue;
+  text-align: center;
+  margin-bottom: 50px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 7px;
+}
+
+.book_img {
+  width: 300px;
+  margin: 0 auto;
+  height: 200px;
+  border-radius: 7px;
+}
+
+.detail_block_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,22 @@
+#app-form-login-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#app-form-login {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.btn-sign-up-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-sign-up {
+  width: 200px;
+}
