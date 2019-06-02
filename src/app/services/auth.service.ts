@@ -10,11 +10,10 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
   signIn() {
-    return new Promise(
-      (resolve, reject) => {
-        this.httpClient.get('https://gestionnaire-de-livres-users.firebaseio.com/home.json')
-      }
-    )
+
+    this.isAuth = true
+
+    console.log('Vous êtes connecté')
   }
 
 /*   signIn() {
@@ -32,6 +31,8 @@ export class AuthService {
   } */
 
   signOut() {
+
       this.isAuth = false;
+      
   }
 }

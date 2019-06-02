@@ -45,13 +45,13 @@ export class SignUpPageComponent implements OnInit {
     let ps = this.signUpForm.value.newUserPassword
 
     this.userService.addNewUser(new User(ln, fn, ad, em, ps))
-    console.log(new User(ln, fn, ad, em, ps))
+    //console.log(new User(ln, fn, ad, em, ps))
     
     
   }
 
   inscriptionErrorHandler() {
-    this.errorMessage = "Vos mots de Passe ne sont pas identiques !"
+    this.errorMessage = "Vos mots de passe ne sont pas identiques !"
     this.router.navigate(['/sign-up'])
 
   }

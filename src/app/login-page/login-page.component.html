@@ -11,6 +11,7 @@ Ou bien a travers a lien redirectionel vers un formulaire d'inscription -->
     <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
       Confirm identity
     </button>
+    <small id="emailHelp" class="form-text text-muted">{{ connexionErrorMessage }}</small>
   </form>
   <!-- Si l'utilisateur est connecté alors on affiche que le bouton -->
   <div class="btn-sign-up-container">
