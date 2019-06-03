@@ -1,15 +1,12 @@
 export class Book {
-/* generatedID:{   title: '', 
-            author: '',
-            edition: '',
-            releaseDate: '',
-            resume: ''
-        } */
-    constructor(public book: {
-        title: string, 
-        author: string,
-        edition: string,
-        releaseDate: string,
-        resume: string
-    }) {}
+
+        constructor(
+        public id_owner: string,
+        public title: string, 
+        public author: string,
+        public edition: string,
+        public releaseDate: string,
+        public resume: string ) {}
+
+
 }

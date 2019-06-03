@@ -15,13 +15,14 @@ import { FourOhFourPageComponent } from './four-oh-four-page/four-oh-four-page.c
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms'
 import { UserService } from './services/user-service';
+import { BookService } from './services/book-service';
 
 
 const myAppRoutes: Routes = [
   { path: 'home', component: LoginPageComponent },
   { path: 'sign-up', component: SignUpPageComponent },
-  { path: 'user-books', canActivate: [AuthGuard], component: ListBooksPageComponent },
-  { path: 'add-new-book', canActivate: [AuthGuard], component: AddBookPageComponent },
+  { path: 'user-books/:id', canActivate: [AuthGuard], component: ListBooksPageComponent },
+  { path: 'add-new-book/:id', canActivate: [AuthGuard], component: AddBookPageComponent },
   { path: '', component: LoginPageComponent },
   { path: 'not-found', component: FourOhFourPageComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -46,7 +47,8 @@ const myAppRoutes: Routes = [
   providers: [
     AuthService,
     AuthGuard,
-    UserService
+    UserService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })

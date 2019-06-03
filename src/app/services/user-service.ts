@@ -11,6 +11,8 @@ export class UserService {
 
   private users: User[] = []
 
+  id_user: string
+
   userSubject = new Subject<User[]>()
 
   constructor(private authService: AuthService,
@@ -19,7 +21,12 @@ export class UserService {
 
   emitAllSubscribedUsers() {
 
-    this.userSubject.next(this.users.slice())
+    if(this.users.length > 0) {
+
+      this.userSubject.next(this.users.slice())
+    }else {
+      this.users = []
+    }
 
   }
 
@@ -33,18 +40,18 @@ export class UserService {
 
   getUsers() {
     this.httpClient.get<any[]>('https://gestionnaire-de-livres-users.firebaseio.com/users.json')
-                   .subscribe(
-                     (users: any) => {
+                    .subscribe(
+                      (users: any) => {
 
                         this.users = users 
 
                         this.emitAllSubscribedUsers()
 
-                     },
-                     (error) => {
-                       console.error('Erreur suivante: ', error)
-                     }
-                   )
+                    },
+                    (error) => {
+                      console.error('Erreur suivante: ', error)
+                    }
+                  )
   }
 
   createNewUser() {
@@ -73,7 +80,7 @@ export class UserService {
 
         this.authService.signIn()
 
-        return true
+        return this.users[user].generatedId
         
       }
 

@@ -4,7 +4,6 @@ import { FormGroup, FormControl } from '@angular/forms'
 import { Validators } from '@angular/forms'
 import { UserService } from '../services/user-service';
 import { User } from '../models/users.model';
-import { Book } from '../models/book.model'
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -56,26 +55,18 @@ export class LoginPageComponent implements OnInit {
 
     let userPassword = this.loginForm.value.loginPassword
 
-    let isAuth = this.userService.credentialVerificator(userEmail, userPassword)
+    let id_user = this.userService.credentialVerificator(userEmail, userPassword)
     
-    if (!isAuth) {
+    if (!id_user) {
 
       this.connexionErrorMessage = "Veuilliez verifier vos identifiants !"
     
     }else {
 
-      this.router.navigate(['/user-books'])
-
+      this.router.navigate([`/user-books/${id_user}`])
+      
       this.connexionErrorMessage = ""
     }
-
-    console.log(new Book({
-      title: 'Le petit chat rouge', 
-      author: 'Jean Des Bois', 
-      edition: 'Les Trois Freres', 
-      releaseDate: '12/09/1974', 
-      resume: 'Il est très nul...',
-    }))
   
   }
   

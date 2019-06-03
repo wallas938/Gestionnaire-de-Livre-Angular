@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user-service';
+import { BookService } from './services/book-service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { UserService } from './services/user-service';
 export class AppComponent implements OnInit{
   title = 'gestionnaire-de-livre';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private userBook: BookService) {
 
   }
 

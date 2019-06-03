@@ -43,9 +43,8 @@ export class SignUpPageComponent implements OnInit {
     let ad = this.signUpForm.value.newUserAdress
     let em = this.signUpForm.value.newUserEmail
     let ps = this.signUpForm.value.newUserPassword
-
-    this.userService.addNewUser(new User(ln, fn, ad, em, ps))
-    //console.log(new User(ln, fn, ad, em, ps))
+    let gk = 'id_' + Math.random().toString(36).substr(2)
+    this.userService.addNewUser(new User(gk, ln, fn, ad, em, ps))
     
     
   }
@@ -63,6 +62,7 @@ export class SignUpPageComponent implements OnInit {
     let passChecker = this.passVerificator(this.passVal1, this.passVal2)
 
     passChecker ? this.inscriptionValidatorHandler() : this.inscriptionErrorHandler()
+  
   }
 
 }
