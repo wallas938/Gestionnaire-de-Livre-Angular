@@ -13,26 +13,14 @@ export class AuthService {
 
     this.isAuth = true
 
-    console.log('Vous êtes connecté')
+    console.log('Vous êtes connecté: ', this.isAuth)
   }
-
-/*   signIn() {
-      return new Promise(
-      (resolve, reject) => {
-          setTimeout(
-              () => {
-              this.isAuth = true;
-              
-            console.log('auth its true')
-              resolve(true);
-              }, 2000
-          );
-      });
-  } */
 
   signOut() {
 
-      this.isAuth = false;
+    this.isAuth = false
+
+      console.log('Vous êtes deco: ', this.isAuth)
       
   }
 }

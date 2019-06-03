@@ -5,6 +5,7 @@ import { Validators } from '@angular/forms'
 import { UserService } from '../services/user-service';
 import { User } from '../models/users.model';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -15,6 +16,8 @@ import { Subscription } from 'rxjs';
 export class LoginPageComponent implements OnInit {
 
   private users: User[] = []
+
+  isAuth: boolean = false
 
   userSubscription: Subscription
 
@@ -29,9 +32,12 @@ export class LoginPageComponent implements OnInit {
   })
 
   constructor(private router: Router,
-    private userService: UserService) { }
+    private userService: UserService,
+    private authService: AuthService) { }
 
   ngOnInit() {
+
+    this.isAuth = this.authService.isAuth
 
     this.userSubscription = this.userService.userSubject.subscribe(
       
@@ -68,6 +74,13 @@ export class LoginPageComponent implements OnInit {
       this.connexionErrorMessage = ""
     }
   
+  }
+
+  onSignOut() {
+
+    this.authService.signOut()
+
+    this.isAuth = this.authService.isAuth
   }
   
 }

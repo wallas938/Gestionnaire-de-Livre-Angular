@@ -1,13 +1,14 @@
 
 <h1 class="h1" id="h1_book_list">Votre collection personnelle <button (click)="toAddBookPage()">Ajouter un livre</button></h1>
 <div id="books_list-container">
-  <div class="book_card">
+  <div *ngFor="let book of userBooks" class="book_card">
     <img src="../assets/images/books_2.jpg" class="book_img" alt="..." />
     <div class="">
-      <h5 class="">Card title</h5>
-      <p class="">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+      <h5 class="title_book">
+        {{ book.title }}
+      </h5>
+      <p class="resume_book">
+        {{ book.resume }}
       </p>
       <div class="detail_block_btn">
           <a routerLink="#" class="btn btn-success" data-toggle="modal" data-target="#test">Plus de détails</a>

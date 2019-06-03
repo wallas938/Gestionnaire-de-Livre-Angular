@@ -21,17 +21,24 @@ export class ListBooksPageComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute) { 
                 
+              this.id_user = this.route.snapshot.params['id']
+
               this.bookService.getAllBooks(this.id_user)
+
             }
 
   ngOnInit() {
-
-    this.id_user = this.route.snapshot.params['id'];
     
     this.bookSubscriber = this.bookService.bookSubject.subscribe(
+      
       (userBooks: any[]) => {
 
-        this.userBooks = userBooks
+        this.userBooks = userBooks.filter((elem, i) => {
+
+          for(let data in elem) {
+
+              return elem['id_owner'] === this.id_user
+          }
 
         //console.log(userBooks)
 
@@ -40,6 +47,7 @@ export class ListBooksPageComponent implements OnInit {
         console.error('Erreur suivante: ', error)
       }
     )
+    })
   }
 
   toAddBookPage() {

@@ -1,6 +1,6 @@
 <!--  Si l'utilisateur est déconecté ou pas inscrit, on lui propose de se connecter a traves un formulaire
 Ou bien a travers a lien redirectionel vers un formulaire d'inscription -->
-<div id="app-form-login-container">
+<div *ngIf="!isAuth" id="app-form-login-container">
   <form [formGroup]="loginForm" (ngSubmit)="onCredentialSubmit()" id="app-form-login">
     <label for="login_email">Email
       <input id="login_email" type="email" class="form-control" name="login_email" formControlName="loginEmail" required/>
@@ -19,4 +19,9 @@ Ou bien a travers a lien redirectionel vers un formulaire d'inscription -->
       Vous n'êtes pas encore inscrit ?
     </button>
   </div>
+</div>
+<div *ngIf="isAuth" >
+    <button type="button" (click)="onSignOut()"class="btn btn-danger">
+        Deconnexion
+      </button>
 </div>

@@ -27,7 +27,9 @@ export class BookService {
     
     this.userBooks.push(newBook)
 
-    this.addBookToServer()
+    console.log(newBook['id_owner'])
+
+    this.addBookToServer(newBook['id_owner'])
 
   }
 
@@ -36,32 +38,20 @@ export class BookService {
     this.httpClient.get<any[]>('https://gestionnaire-de-livres-users.firebaseio.com/books.json')
                     .subscribe(
                       (response: any) => {
-                        /** A revoir */
-                        this.userBooks = response.filter((elem, i) => {
-                          for(let data in elem) {
-                            if (elem[data].id_onwer === id_user) {
-                              console.log(elem[data]['id_onwer'])
-                              return elem
-                            } 
-                          }
+
+                        this.userBooks = response
                         
-                        })
-
-                        console.log(this.userBooks)
-
-                        //console.log('UserBooks from book-service: ', this.userBooks)
-
                         this.emitAllUsersBooks()
                       } 
                     )
   }
 
-  addBookToServer() {
+  addBookToServer(id_user: string) {
     this.httpClient.put('https://gestionnaire-de-livres-users.firebaseio.com/books.json', this.userBooks)
                     .subscribe(
                       () => {
 
-                        this.router.navigate(['/user-books/1']) //Ajouter l'id
+                        this.router.navigate([`/user-books/${id_user}`]) //Ajouter l'id
                       },
                       (error) => {
                         console.error('Erreur suivante: ', error)
