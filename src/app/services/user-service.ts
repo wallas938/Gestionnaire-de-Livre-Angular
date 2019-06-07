@@ -65,7 +65,6 @@ export class UserService {
                           
                           },
                           (error) => {
-
                             
                             console.log('Erreur suivante: ', error)
                           }
@@ -78,7 +77,7 @@ export class UserService {
 
       if (this.users[user].email === userEmail && this.users[user].password === userPassword) {
 
-        this.authService.signIn()
+        this.authService.signIn(this.users[user].generatedId)
 
         return this.users[user].generatedId
         

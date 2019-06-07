@@ -5,7 +5,7 @@
         <a class="nav-link active" routerLinkActive="active" routerLink="home">Accueil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="user-books">Liste de vos Livres</a>
+        <a class="nav-link" routerLinkActive="active" (click)="syncWithCurrentUserId()" [routerLink]="pathToCurrentUserBooks">Liste de vos Livres</a>
       </li>
     </ul>
   </div>

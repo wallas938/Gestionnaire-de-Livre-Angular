@@ -27,7 +27,7 @@ export class BookService {
     
     this.userBooks.push(newBook)
 
-    console.log(newBook['id_owner'])
+    //console.log(newBook['id_owner'])
 
     this.addBookToServer(newBook['id_owner'])
 
@@ -42,6 +42,7 @@ export class BookService {
                         this.userBooks = response
                         
                         this.emitAllUsersBooks()
+                      
                       } 
                     )
   }
