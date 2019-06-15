@@ -29,23 +29,23 @@ export class AppComponent implements OnInit{
     this.syncWithCurrentUserId()
 
     this.userService.getUsers()
-  
+
   }
 
 
   syncWithCurrentUserId() {
 
     this.pathToCurrentUserBooks = ""
-
-    if(this.authService.isAuth) {
       
-      let currentId = this.authService.returnCurrentId()
+      let currentId = this.userService.returnUserId()
+
+      console.log('currentId from authService: ', currentId)
 
       this.isUserAuth = this.authService.isAuth
 
       this.pathToCurrentUserBooks = 'user-books/'+currentId
-      
+    
+      console.log('User is auth ?: ', this.isUserAuth)
     }
-  }
 
 }

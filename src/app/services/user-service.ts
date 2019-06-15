@@ -86,5 +86,13 @@ export class UserService {
     }
 
   }
+
+  getUserId(id_user: string) {
+    this.id_user = id_user
+  }
+
+  returnUserId() {
+    return this.id_user
+  }
   
 } 

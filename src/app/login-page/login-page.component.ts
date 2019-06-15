@@ -55,13 +55,13 @@ export class LoginPageComponent implements OnInit {
 
   }
 
-  onCredentialSubmit() {
+  async onCredentialSubmit () {
     
     let userEmail = this.loginForm.value.loginEmail
 
     let userPassword = this.loginForm.value.loginPassword
 
-    let id_user = this.userService.credentialVerificator(userEmail, userPassword)
+    let id_user = await this.userService.credentialVerificator(userEmail, userPassword)
     
     if (!id_user) {
 
@@ -69,8 +69,10 @@ export class LoginPageComponent implements OnInit {
     
     }else {
 
+      this.userService.getUserId(id_user)
+
       this.router.navigate([`/user-books/${id_user}`])
-      
+
       this.connexionErrorMessage = ""
     }
   

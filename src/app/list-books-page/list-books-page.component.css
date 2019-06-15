@@ -1,4 +1,9 @@
-#h1_book_list {
+.book-img {
+  width: 100px;
+  height: 100px;
+}
+
+/* #h1_book_list {
   text-align: center;
 }
 
@@ -20,15 +25,16 @@
   border-radius: 7px;
 }
 
-/* .book_img {
+.book_img {
   width: 300px;
   margin: 0 auto;
   height: 200px;
   border-radius: 7px;
-} */
+} 
 
 .detail_block_btn {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
+ */

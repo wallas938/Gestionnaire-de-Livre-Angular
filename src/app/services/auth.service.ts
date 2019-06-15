@@ -17,8 +17,6 @@ export class AuthService {
 
     this.currentId = currentId
 
-    this.returnCurrentId()
-
     //console.log('Vous êtes connecté: ', this.isAuth)
   }
 
@@ -32,11 +30,4 @@ export class AuthService {
       
   }
 
-  returnCurrentId() {
-
-    //console.log(this.currentId)
-
-    return this.currentId
-
-  }
 }

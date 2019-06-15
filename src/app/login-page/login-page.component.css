@@ -17,6 +17,10 @@
   text-align: center;
 }
 
+.btn-sign-out-container {
+  text-align: center;
+}
+
 .btn-sign-up {
   width: 200px;
 }
